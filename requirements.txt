@@ -1,0 +1,40 @@
+# research-synth — Day 10 sprint project
+# LangGraph multi-agent research synthesizer with multi-vendor routing.
+
+# === LangGraph + LangChain core ===
+langgraph>=0.2.50
+langchain>=0.3.0
+langchain-core>=0.3.0
+
+# === LLM providers (LiteLLM unifies; native SDKs for direct calls) ===
+litellm>=1.55.0
+anthropic>=0.40.0
+openai>=1.55.0
+
+# === Search + browser tools ===
+ddgs>=8.0.0    # renamed from duckduckgo-search
+arxiv>=2.1.0
+browserbase>=1.0.0
+playwright>=1.49.0    # Browserbase needs Playwright protocol
+
+# === Observability ===
+# Langfuse v4 (1.x SDK rewrite) — using the SDK directly via
+# start_as_current_observation, NOT LiteLLM's callback (which is broken
+# on Python 3.14 + Langfuse v4: it still calls langfuse.version.__version__).
+# This matches codeorch's instrumentation pattern exactly.
+langfuse>=4.5.0
+
+# === Persistence (reuses CodeOrch's pgvector instance on port 5433) ===
+psycopg[binary]>=3.2.0
+pydantic>=2.10.0
+
+# === API + UI ===
+fastapi>=0.115.0
+uvicorn>=0.32.0
+streamlit>=1.40.0
+plotly>=5.24.0
+
+# === Misc ===
+python-dotenv>=1.0.0
+httpx>=0.28.0
+tenacity>=9.0.0

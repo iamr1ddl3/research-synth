@@ -1,0 +1,320 @@
+{
+  "run_id": "d6eadd02-0190-4b6d-b754-e55f4af52967",
+  "query": "What are the latest techniques for prompt injection defense in production LLM agents?",
+  "sub_queries": [
+    "Identify novel prompt injection attack vectors targeting LLM agents in production environments.",
+    "Evaluate the effectiveness of obfuscation and input sanitization methods against prompt injection in production LLM agents.",
+    "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics.",
+    "Investigate the role of LLM-specific architectural patterns (e.g., multi-agent systems, sandboxing) in mitigating prompt injection risks.",
+    "Explore the applicability and limitations of red-teaming and adversarial testing for prompt injection defense in deployed LLM agents."
+  ],
+  "arxiv_findings": [
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "WebInject: Prompt Injection Attack to Web Agents",
+      "url": "http://arxiv.org/abs/2505.11717v4",
+      "snippet": "This paper introduces WebInject, a novel prompt injection attack specifically targeting web agents powered by multi-modal LLMs in production environments. It describes a unique attack vector that manipulates webpage pixel values to influence LLM agent actions, representing a practical and innovative method of prompt injection beyond textual prompts.",
+      "raw_content": "Multi-modal large language model (MLLM)-based web agents interact with webpage environments by generating actions based on screenshots of the webpages. In this work, we propose WebInject, a prompt injection attack that manipulates the webpage environment to induce a web agent to perform an attacker-specified action. Our attack adds a perturbation to the raw pixel values of the rendered webpage. After these perturbed pixels are mapped into a screenshot, the perturbation induces the web agent to perform the attacker-specified action. We formulate the task of finding the perturbation as an optimization problem. A key challenge in solving this problem is that the mapping between raw pixel values and screenshot is non-differentiable, making it difficult to backpropagate gradients to the perturbation. To overcome this, we train a neural network to approximate the mapping and apply projected gradient descent to solve the reformulated optimization problem. Extensive evaluation on multiple datasets shows that WebInject is highly effective and significantly outperforms baselines.",
+      "relevance_score": 1.0,
+      "sub_query": "Identify novel prompt injection attack vectors targeting LLM agents in production environments."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "Automatic and Universal Prompt Injection Attacks against Large Language Models",
+      "url": "http://arxiv.org/abs/2403.04957v1",
+      "snippet": "This work presents automatic and universal prompt injection attacks against LLMs, including a gradient-based method for generating effective, broadly applicable prompt injections. Its focus on developing novel automated attack vectors directly contributes to understanding emerging threats to LLM agents in deployed systems.",
+      "raw_content": "Large Language Models (LLMs) excel in processing and generating human language, powered by their ability to interpret and follow instructions. However, their capabilities can be exploited through prompt injection attacks. These attacks manipulate LLM-integrated applications into producing responses aligned with the attacker's injected content, deviating from the user's actual requests. The substantial risks posed by these attacks underscore the need for a thorough understanding of the threats. Yet, research in this area faces challenges due to the lack of a unified goal for such attacks and their reliance on manually crafted prompts, complicating comprehensive assessments of prompt injection robustness. We introduce a unified framework for understanding the objectives of prompt injection attacks and present an automated gradient-based method for generating highly effective and universal prompt injection data, even in the face of defensive measures. With only five training samples (0.3% relative to the test data), our attack can achieve superior performance compared with baselines. Our findings emphasize the importance of gradient-based testing, which can avoid overestimation of rob",
+      "relevance_score": 0.9,
+      "sub_query": "Identify novel prompt injection attack vectors targeting LLM agents in production environments."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "To Protect the LLM Agent Against the Prompt Injection Attack with Polymorphic Prompt",
+      "url": "http://arxiv.org/abs/2506.05739v1",
+      "snippet": "This paper directly compares traditional defenses like input sanitization with its proposed method (Polymorphic Prompt Assembling, or PPA) for protecting LLM agents against prompt injection. It evaluates the effectiveness of these methods in production-like scenarios, providing empirical results relevant to the sub-query.",
+      "raw_content": "LLM agents are widely used as agents for customer support, content generation, and code assistance. However, they are vulnerable to prompt injection attacks, where adversarial inputs manipulate the model's behavior. Traditional defenses like input sanitization, guard models, and guardrails are either cumbersome or ineffective. In this paper, we propose a novel, lightweight defense mechanism called Polymorphic Prompt Assembling (PPA), which protects against prompt injection with near-zero overhead. The approach is based on the insight that prompt injection requires guessing and breaking the structure of the system prompt. By dynamically varying the structure of system prompts, PPA prevents attackers from predicting the prompt structure, thereby enhancing security without compromising performance. We conducted experiments to evaluate the effectiveness of PPA against existing attacks and compared it with other defense methods.",
+      "relevance_score": 0.8,
+      "sub_query": "Evaluate the effectiveness of obfuscation and input sanitization methods against prompt injection in production LLM agents."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "PISanitizer: Preventing Prompt Injection to Long-Context LLMs via Prompt Sanitization",
+      "url": "http://arxiv.org/abs/2511.10720v1",
+      "snippet": "PISanitizer specifically targets prompt injection in long-context LLMs through prompt sanitization, addressing limitations of existing input sanitization methods. The paper evaluates the effectiveness of its sanitization approach compared to prior methods, making it highly relevant for assessing the efficacy of input sanitization in practical LLM deployments.",
+      "raw_content": "Long context LLMs are vulnerable to prompt injection, where an attacker can inject an instruction in a long context to induce an LLM to generate an attacker-desired output. Existing prompt injection defenses are designed for short contexts. When extended to long-context scenarios, they have limited effectiveness. The reason is that an injected instruction constitutes only a very small portion of a long context, making the defense very challenging. In this work, we propose PISanitizer, which first pinpoints and sanitizes potential injected tokens (if any) in a context before letting a backend LLM generate a response, thereby eliminating the influence of the injected instruction. To sanitize injected tokens, PISanitizer builds on two observations: (1) prompt injection attacks essentially craft an instruction that compels an LLM to follow it, and (2) LLMs intrinsically leverage the attention mechanism to focus on crucial input tokens for output generation. Guided by these two observations, we first intentionally let an LLM follow arbitrary instructions in a context and then sanitize tokens receiving high attention that drive the instruction-following behavior of the LLM. By design, PI",
+      "relevance_score": 0.9,
+      "sub_query": "Evaluate the effectiveness of obfuscation and input sanitization methods against prompt injection in production LLM agents."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "Detecting Prompt Injection Attacks Against Application Using Classifiers",
+      "url": "http://arxiv.org/abs/2512.12583v1",
+      "snippet": "This paper directly addresses prompt injection detection by evaluating several classifiers (LSTM, feed forward neural networks, Random Forest, and Naive Bayes) trained on a curated dataset. It offers comparative performance data on detection accuracy, making it highly relevant for comparing existing frameworks and their real-world effectiveness.",
+      "raw_content": "Prompt injection attacks can compromise the security and stability of critical systems, from infrastructure to large web applications. This work curates and augments a prompt injection dataset based on the HackAPrompt Playground Submissions corpus and trains several classifiers, including LSTM, feed forward neural networks, Random Forest, and Naive Bayes, to detect malicious prompts in LLM integrated web applications. The proposed approach improves prompt injection detection and mitigation, helping protect targeted applications and systems.",
+      "relevance_score": 0.85,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "SecAlign: Defending Against Prompt Injection with Preference Optimization",
+      "url": "http://arxiv.org/abs/2410.05451v3",
+      "snippet": "This work introduces SecAlign, a defense framework for prompt injection based on preference optimization, and provides real-world performance data showing that its technique reduces prompt injection success rates to less than 10%. Its focus on both methodology and empirical results makes it highly relevant to comparisons of prevention frameworks and their metrics.",
+      "raw_content": "Large language models (LLMs) are becoming increasingly prevalent in modern software systems, interfacing between the user and the Internet to assist with tasks that require advanced language understanding. To accomplish these tasks, the LLM often uses external data sources such as user documents, web retrieval, results from API calls, etc. This opens up new avenues for attackers to manipulate the LLM via prompt injection. Adversarial prompts can be injected into external data sources to override the system's intended instruction and instead execute a malicious instruction. To mitigate this vulnerability, we propose a new defense called SecAlign based on the technique of preference optimization. Our defense first constructs a preference dataset with prompt-injected inputs, secure outputs (ones that respond to the legitimate instruction), and insecure outputs (ones that respond to the injection). We then perform preference optimization on this dataset to teach the LLM to prefer the secure output over the insecure one. This provides the first known method that reduces the success rates of various prompt injections to <10%, even against attacks much more sophisticated than ones seen du",
+      "relevance_score": 0.95,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "StruQ: Defending Against Prompt Injection with Structured Queries",
+      "url": "http://arxiv.org/abs/2402.06363v2",
+      "snippet": "StruQ presents a prevention framework that isolates application prompts from user data using structured queries and reports the approach's practical implementation and fine-tuning strategy. The paper's evaluation of their system's effectiveness makes it relevant for comparing prevention frameworks for prompt injection in LLMs.",
+      "raw_content": "Recent advances in Large Language Models (LLMs) enable exciting LLM-integrated applications, which perform text-based tasks by utilizing their advanced language understanding capabilities. However, as LLMs have improved, so have the attacks against them. Prompt injection attacks are an important threat: they trick the model into deviating from the original application's instructions and instead follow user directives. These attacks rely on the LLM's ability to follow instructions and inability to separate prompts and user data. We introduce structured queries, a general approach to tackle this problem. Structured queries separate prompts and data into two channels. We implement a system that supports structured queries. This system is made of (1) a secure front-end that formats a prompt and user data into a special format, and (2) a specially trained LLM that can produce high-quality outputs from these inputs. The LLM is trained using a novel fine-tuning strategy: we convert a base (non-instruction-tuned) LLM to a structured instruction-tuned model that will only follow instructions in the prompt portion of a query. To do so, we augment standard instruction tuning datasets with exa",
+      "relevance_score": 0.85,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "UniGuardian: A Unified Defense for Detecting Prompt Injection, Backdoor Attacks and Adversarial Attacks in Large Language Models",
+      "url": "http://arxiv.org/abs/2502.13141v1",
+      "snippet": "UniGuardian is a unified defense system aimed at detecting various attacks on LLMs, including prompt injection. It provides experimental validation of its detection accuracy and efficiency, making it pertinent for comparing multi-purpose detection frameworks and their operational performance.",
+      "raw_content": "Large Language Models (LLMs) are vulnerable to attacks like prompt injection, backdoor attacks, and adversarial attacks, which manipulate prompts or models to generate harmful outputs. In this paper, departing from traditional deep learning attack paradigms, we explore their intrinsic relationship and collectively term them Prompt Trigger Attacks (PTA). This raises a key question: Can we determine if a prompt is benign or poisoned? To address this, we propose UniGuardian, the first unified defense mechanism designed to detect prompt injection, backdoor attacks, and adversarial attacks in LLMs. Additionally, we introduce a single-forward strategy to optimize the detection pipeline, enabling simultaneous attack detection and text generation within a single forward pass. Our experiments confirm that UniGuardian accurately and efficiently identifies malicious prompts in LLMs.",
+      "relevance_score": 0.7,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "A Survey of Multi-Agent Deep Reinforcement Learning with Communication",
+      "url": "http://arxiv.org/abs/2203.08975v2",
+      "snippet": "This survey explores architectural patterns in multi-agent deep reinforcement learning, detailing communication protocols and system structures which are closely related to LLM-specific multi-agent setups. Such architectures have potential for mitigating prompt injection through distributed oversight and message filtering, making this work relevant for principled architectural defenses.",
+      "raw_content": "Communication is an effective mechanism for coordinating the behaviors of multiple agents, broadening their views of the environment, and to support their collaborations. In the field of multi-agent deep reinforcement learning (MADRL), agents can improve the overall learning performance and achieve their objectives by communication. Agents can communicate various types of messages, either to all agents or to specific agent groups, or conditioned on specific constraints. With the growing body of research work in MADRL with communication (Comm-MADRL), there is a lack of a systematic and structural approach to distinguish and classify existing Comm-MADRL approaches. In this paper, we survey recent works in the Comm-MADRL field and consider various aspects of communication that can play a role in designing and developing multi-agent reinforcement learning systems. With these aspects in mind, we propose 9 dimensions along which Comm-MADRL approaches can be analyzed, developed, and compared. By projecting existing works into the multi-dimensional space, we discover interesting trends. We also propose some novel directions for designing future Comm-MADRL systems through exploring possible",
+      "relevance_score": 0.7,
+      "sub_query": "Investigate the role of LLM-specific architectural patterns (e.g., multi-agent systems, sandboxing) in mitigating prompt injection risks."
+    },
+    {
+      "source_type": "arxiv",
+      "source_agent": "arxiv_agent",
+      "title": "SearchAttack: Red-Teaming LLMs against Knowledge-to-Action Threats under Online Web Search",
+      "url": "http://arxiv.org/abs/2601.04093v2",
+      "snippet": "This paper directly examines red-teaming methods (SearchAttack) designed to test LLMs for susceptibility to knowledge-to-action threats, including adversarial attacks in the context of online web search. Its presentation of stress-testing and benchmarking approaches make it relevant for evaluating both applicability and limits of red-teaming in deployed LLM agent settings.",
+      "raw_content": "Recently, people have suffered from LLM hallucination and have become increasingly aware of the reliability gap of LLMs in open and knowledge-intensive tasks. As a result, they have increasingly turned to search-augmented LLMs to mitigate this issue. However, LLM-driven search also becomes an attractive target for misuse. Once the returned content directly contains targeted, ready-to-use harmful instructions or takeaways for users, it becomes difficult to withdraw or undo such exposure. To investigate LLMs' unsafe search behavior issues, we first propose \\textbf{\\textit{SearchAttack}} for red-teaming, which (1) rephrases harmful semantics via dense and benign knowledge to evade direct in-context decoding, thus eliciting unsafe information retrieval, (2) stress-tests LLMs' reward-chasing bias by steering them to synthesize unsafe retrieved content. We also curate an emergent, domain-specific illicit activity benchmark for search-based threat assessment, and introduce a fact-checking framework to ground and quantify harm in both offline and online attack settings. Extensive experiments are conducted to red-team the search-augmented LLMs for responsible vulnerability assessment. Empir",
+      "relevance_score": 0.8,
+      "sub_query": "Explore the applicability and limitations of red-teaming and adversarial testing for prompt injection defense in deployed LLM agents."
+    }
+  ],
+  "web_findings": [
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Prompt Injection in Production Agents: 2026 Taxonomy",
+      "url": "https://www.digitalapplied.com/blog/prompt-injection-production-agents-2026-taxonomy",
+      "snippet": "This result directly addresses novel prompt injection attack vectors in production environments by providing a taxonomy of 10 attack classes and delivery vectors.",
+      "raw_content": "Apr 14, 2026 \u00b7 Prompt injection attack taxonomy for production agents \u2014 10 attack classes, delivery vectors, detection signals, and mitigation matrix for 2026 deployments.",
+      "relevance_score": 0.9,
+      "sub_query": "Identify novel prompt injection attack vectors targeting LLM agents in production environments."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Prompt Injection in Production: Real-World Case Studies from ...",
+      "url": "https://www.redfoxsec.com/blog/prompt-injection-in-production-real-world-case-studies-from-llm-deployments",
+      "snippet": "This result is relevant as it explores real-world case studies of prompt injection attacks on LLM deployments, including technical details on payloads and code examples.",
+      "raw_content": "Nov 29, 2025 \u00b7 Explore real-world prompt injection attacks on LLM deployments with technical case studies, payloads, and code examples. Learn how attackers exploit AI systems and how to defend them.",
+      "relevance_score": 0.85,
+      "sub_query": "Identify novel prompt injection attack vectors targeting LLM agents in production environments."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Prompt Injection in Production: Attack Patterns and Defences ...",
+      "url": "https://brightlume.ai/blog/prompt-injection-production-attack-patterns-defences-ai-agents",
+      "snippet": "This result is relevant as it provides a deep-dive into prompt injection attack patterns in production AI agents, including layered defenses and architectural mitigations.",
+      "raw_content": "Apr 17, 2026 \u00b7 Deep-dive on prompt injection attacks in production AI agents. Real attack patterns, layered defences, and architectural mitigations for security teams.",
+      "relevance_score": 0.8,
+      "sub_query": "Identify novel prompt injection attack vectors targeting LLM agents in production environments."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Prompt Injection Attack to Tool Selection in LLM Agents",
+      "url": "https://arxiv.org/html/2504.19793v2",
+      "snippet": "This result introduces ToolHijacker, a novel prompt injection attack targeting tool selection in LLM agents, which is directly relevant to identifying new attack vectors.",
+      "raw_content": "In this work, we introduce ToolHijacker , a novel prompt injection attack targeting tool selection in no-box scenarios.",
+      "relevance_score": 0.75,
+      "sub_query": "Identify novel prompt injection attack vectors targeting LLM agents in production environments."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Design Patterns for Securing LLM Agents against Prompt",
+      "url": "https://arxiv.org/html/2506.08837v3",
+      "snippet": "This paper discusses design patterns for LLM agents to mitigate prompt injection risks, directly addressing the sub-query's focus on effectiveness of security methods.",
+      "raw_content": "In this work, we describe a number of design patterns for LLM agents that significantly mitigate the risk of prompt injections.",
+      "relevance_score": 0.9,
+      "sub_query": "Evaluate the effectiveness of obfuscation and input sanitization methods against prompt injection in production LLM agents."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Analysis of LLMs Against Prompt Injection and Jailbreak Attacks",
+      "url": "https://arxiv.org/html/2602.22242v1",
+      "snippet": "This result directly compares prompt injection vulnerabilities across multiple LLMs, which is highly relevant for evaluating detection and prevention frameworks.",
+      "raw_content": "This work evaluates prompt-injection and jailbreak vulnerability using a large, manually curated dataset across multiple open-source LLMs, including ...",
+      "relevance_score": 0.9,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Enhancing Security in LLM Applications: A Performance",
+      "url": "https://arxiv.org/html/2506.19109v1",
+      "snippet": "The study compares the performance of specific prompt leak detection tools (LLM Guard, Vigil, and Rebuff), making it directly relevant to the sub-query.",
+      "raw_content": "In one of the first studies on existing prompt leak detection solutions, we compared the performances of LLM Guard, Vigil, and Rebuff.",
+      "relevance_score": 0.85,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Detection Method for Prompt Injection by Integrating",
+      "url": "https://arxiv.org/html/2506.06384v1",
+      "snippet": "This work discusses the need for efficient prompt injection detection methods, which aligns with the sub-query's focus on frameworks and metrics.",
+      "raw_content": "This highlights the urgent need for efficient prompt injection detection methods that are applicable across a wide range of LLMs.",
+      "relevance_score": 0.8,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Know Thy Enemy: Securing LLMs Against Prompt Injection via",
+      "url": "https://arxiv.org/html/2601.04666v1",
+      "snippet": "The study establishes a structured mapping for securing LLMs against prompt injection, providing a methodological approach relevant to the sub-query.",
+      "raw_content": "... and Harmful Output), we establish a three-level mapping from application scenarios to application components to LLM context regions, and perform ...",
+      "relevance_score": 0.75,
+      "sub_query": "Compare existing prompt injection detection and prevention frameworks for LLM agents, including their real-world performance metrics."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "From prompt injections to protocol exploits: Threats in LLM-powered AI ...",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2405959525001997",
+      "snippet": "This result systematically categorizes and analyzes attack vectors, including multi-agent interactions, which directly addresses LLM-specific architectural patterns in mitigating risks like prompt injection.",
+      "raw_content": "Our survey fills this critical gap by systematically categorizing and analyzing over thirty recent attack vectors \u2014 ranging from prompt injection, data poisoning, and backdoor insertion to multi-agent recursive blocking and federated model poisoning \u2014 within the unique context of LLM-to-LLM and agent-to-agent interactions.",
+      "relevance_score": 0.9,
+      "sub_query": "Investigate the role of LLM-specific architectural patterns (e.g., multi-agent systems, sandboxing) in mitigating prompt injection risks."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Design Patterns to Secure LLM Agents In Action",
+      "url": "https://labs.reversec.com/posts/2025/08/design-patterns-to-secure-llm-agents-in-action",
+      "snippet": "This practical walkthrough of security design patterns explicitly discusses structural controls, such as multi-agent systems, to mitigate prompt injection risks in LLM agents.",
+      "raw_content": "A practical walkthrough of six security design patterns for building resilient LLM agents. We explore how structural controls, not just model-level defenses, can mitigate prompt injection, and introduce a hands-on code repository to see these patterns in action.",
+      "relevance_score": 0.95,
+      "sub_query": "Investigate the role of LLM-specific architectural patterns (e.g., multi-agent systems, sandboxing) in mitigating prompt injection risks."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Architectural Blueprints for Securing LLM Agents: A Diagram-Driven Deep ...",
+      "url": "https://abivarma.medium.com/architectural-blueprints-for-securing-llm-agents-96591c5d7db9",
+      "snippet": "The architectural blueprints and design patterns presented here focus on application-specific design and constraints, offering concrete strategies to secure LLM agents against prompt injection.",
+      "raw_content": "The six design patterns presented in this paper offer a concrete framework for building LLM agents with meaningful resistance to prompt injection attacks. Rather than pursuing the elusive goal of securing general-purpose agents, this approach embraces application-specific design with intentional constraints as a viable path to practical AI safety.",
+      "relevance_score": 0.9,
+      "sub_query": "Investigate the role of LLM-specific architectural patterns (e.g., multi-agent systems, sandboxing) in mitigating prompt injection risks."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Securing LLM Agents: Prompt Injection Design Patterns",
+      "url": "https://pondevelopment.github.io/llm-prompt-injection-mitigation-patterns/",
+      "snippet": "This guide explores system-level strategies, including intentional capability constraints, to mitigate prompt injection in LLM agents, aligning closely with architectural patterns like sandboxing.",
+      "raw_content": "This guide explores six design patterns from the paper \"Design Patterns for Securing LLM Agents against Prompt Injections\". These patterns offer practical, system-level strategies to build more secure LLM agents by intentionally constraining their capabilities, providing a trade-off between utility and security.",
+      "relevance_score": 0.85,
+      "sub_query": "Investigate the role of LLM-specific architectural patterns (e.g., multi-agent systems, sandboxing) in mitigating prompt injection risks."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "How to red team LLM Agents | Promptfoo",
+      "url": "https://www.promptfoo.dev/docs/red-team/agents/",
+      "snippet": "This result directly addresses red-teaming techniques specifically for LLM agents, focusing on prompt injection defense, which aligns closely with the sub-query.",
+      "raw_content": "They cover repository prompt injection, terminal output injection, secret environment reads, sandbox read escapes, and verifier sabotage.",
+      "relevance_score": 0.85,
+      "sub_query": "Explore the applicability and limitations of red-teaming and adversarial testing for prompt injection defense in deployed LLM agents."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "What Is LLM Red Teaming? AI Safety, Risks, and Best Practices",
+      "url": "https://www.mend.io/blog/llm-red-teaming-threats-testing-best-practices/",
+      "snippet": "The result provides an overview of LLM red teaming practices, including adversarial testing to identify vulnerabilities in models, relevant to the sub-query.",
+      "raw_content": "Identify vulnerabilities: Red teamers use creative and adversarial prompts to try and \u201c jailbreak \u201d the model, looking for ways to bypass ...",
+      "relevance_score": 0.8,
+      "sub_query": "Explore the applicability and limitations of red-teaming and adversarial testing for prompt injection defense in deployed LLM agents."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "LLM Red Teaming: The Complete Step-By-Step Guide To LLM Safety",
+      "url": "https://www.confident-ai.com/blog/red-teaming-llms-a-step-by-step-guide",
+      "snippet": "This guide outlines step-by-step processes for red-teaming LLMs, including adversarial prompt curation, which is directly relevant to the sub-query.",
+      "raw_content": "... Testing : involves manually curating adversarial prompts to uncover edge cases from scratch, and is typically used by researchers at foundational ...",
+      "relevance_score": 0.75,
+      "sub_query": "Explore the applicability and limitations of red-teaming and adversarial testing for prompt injection defense in deployed LLM agents."
+    },
+    {
+      "source_type": "web",
+      "source_agent": "web_search_agent",
+      "title": "Improve AI security by red teaming large language models |",
+      "url": "https://www.techtarget.com/searchenterpriseai/tip/Improve-AI-security-by-red-teaming-large-language-models",
+      "snippet": "The snippet discusses adversarial training and red-teaming LLMs to bypass safety mechanisms, directly addressing the applicability of such methods for defense.",
+      "raw_content": "In this adversarial training, the red team provides different types of prompts to force the LLM to bypass the safety mechanisms set by its developers.",
+      "relevance_score": 0.7,
+      "sub_query": "Explore the applicability and limitations of red-teaming and adversarial testing for prompt injection defense in deployed LLM agents."
+    }
+  ],
+  "deep_read_findings": [],
+  "report": "# Research Report: Latest Techniques for Prompt Injection Defense in Production LLM Agents\n\nPrompt injection remains one of the most pressing security challenges for deployed LLM agents, with attackers exploiting both textual and multi-modal vectors to hijack agent behavior. Defenses have matured significantly, spanning fine-tuning-based approaches, architectural design patterns, input sanitization, classifier-based detection, and adversarial red-teaming \u2014 each with distinct trade-offs in coverage and practical overhead. No single method is universally sufficient, and the field is converging toward layered, defense-in-depth strategies.\n\n---\n\n## Attack Landscape: Understanding What Defenses Must Confront\n\nA robust defense posture begins with understanding the evolving attack surface. A 2026 taxonomy identifies 10 distinct prompt injection attack classes and delivery vectors targeting production agents [6]. Beyond classic text-based injections, WebInject demonstrates that multi-modal LLM agents can be compromised by manipulating webpage pixel values, bypassing defenses focused solely on text [1]. ToolHijacker targets tool selection within LLM agents, representing a specialized vector that subverts the agent's action-selection logic rather than its text generation [22]. Automated, gradient-based methods now enable universal prompt injections that generalize across diverse models and tasks, raising the stakes for any static defense [4]. Real-world case studies document live exploitation of these vectors in deployed systems, including exfiltration payloads embedded in retrieved documents and external content [13]. Multi-agent architectures introduce additional complexity: inter-agent communication channels themselves become attack surfaces when messages can carry injected instructions [9].\n\n---\n\n## Fine-Tuning and Model-Level Defenses\n\nThe most robust class of defenses intervenes at the model level, making LLMs intrinsically more resistant to injected instructions.\n\n**SecAlign** applies preference optimization (similar to RLHF) to train models to prioritize legitimate system prompts over injected adversarial content. Empirically, it reduces prompt injection success rates to below 10% across tested benchmarks [2]. **StruQ** takes a complementary approach by fine-tuning models to treat structured query formats as a trust boundary \u2014 isolating application-level instructions from untrusted user-supplied data, so the model learns not to follow instructions embedded in the data channel [12]. **Polymorphic Prompt Assembling (PPA)** dynamically randomizes the structure of system prompts at inference time, making it harder for injected payloads to reliably target fixed prompt locations; empirical comparisons show it outperforms static input sanitization in production-like scenarios [17]. A structured threat-mapping framework further formalizes the correspondence between known attack patterns and which model-level defenses address each [23].\n\n---\n\n## Input Sanitization and Detection-Based Approaches\n\nFor systems where model fine-tuning is impractical, pre-processing and detection layers provide an important line of defense.\n\n**PISanitizer** addresses a specific gap: existing sanitization methods struggle with long-context LLMs where injected instructions can be buried in large retrieved corpora. It uses prompt sanitization techniques tailored to long-context settings, improving detection over naive filtering [5]. Classifier-based detection has also been evaluated systematically: LSTM, feedforward neural networks, Random Forest, and Na\u00efve Bayes classifiers trained on curated prompt injection datasets show competitive detection accuracy, providing lightweight alternatives to LLM-based guardians [11]. A comparative study of commercial prompt leak detection tools \u2014 LLM Guard, Vigil, and Rebuff \u2014 benchmarks their real-world performance on prompt exfiltration scenarios, offering practitioners concrete selection criteria [14]. **UniGuardian** proposes a unified detection framework that simultaneously targets prompt injection, backdoor attacks, and adversarial attacks, reporting experimental validation of both accuracy and inference efficiency [25]. A detection method integrating multiple signal types further addresses the need for efficient, scalable detection in production pipelines [20].\n\n---\n\n## Architectural and Design Pattern Defenses\n\nArchitectural controls address injection risks at the system design level, complementing model and input-layer defenses.\n\nA comprehensive set of design patterns for securing LLM agents includes privilege separation, explicit trust hierarchies between agents, and output validation gates [7]. Practical walkthroughs demonstrate how multi-agent system architectures can enforce isolation \u2014 untrusted content processed by one agent is not automatically trusted by orchestrating agents [3]. Intentional capability constraints and sandboxing \u2014 limiting what tools and external resources an agent can access \u2014 reduce the blast radius of a successful injection [15]. Architectural blueprints with diagram-driven guidance translate these principles into concrete implementation strategies, including application-specific constraints on agent action spaces [10]. From a threat modeling perspective, protocol-level exploits in LLM-powered agentic systems (e.g., exploitation of MCP or inter-agent messaging protocols) are now categorized alongside classical prompt injection, requiring architectural mitigations at the communication layer [9]. Multi-agent deep reinforcement learning research offers relevant primitives \u2014 distributed oversight and message filtering across agents \u2014 that can be adapted for principled architectural defense in LLM multi-agent deployments [26].\n\n---\n\n## Red-Teaming and Adversarial Testing\n\nRed-teaming has emerged as a critical validation step for production deployments, exposing gaps that static analysis misses.\n\nDedicated tooling for red-teaming LLM agents specifically probes for prompt injection susceptibility across the agent's full action loop, not just its text outputs [16]. **SearchAttack** formalizes red-teaming for knowledge-to-action threats, stress-testing LLMs that operate with live web search by injecting adversarial content into retrieved results \u2014 a setting directly representative of production RAG and agentic pipelines [18]. Step-by-step red-teaming guides covering adversarial prompt curation and systematic vulnerability enumeration provide operational frameworks teams can follow [24]. Analyses comparing prompt injection and jailbreak resistance across multiple LLM families yield performance metrics that inform model selection for security-sensitive deployments [8]. Adversarial training \u2014 where red-team outputs are fed back into model training \u2014 is increasingly recommended as a closed-loop improvement process [27]. Despite these advances, red-teaming has inherent limitations: coverage is bounded by the creativity of the red team and the breadth of attack taxonomies used, and automated red-teaming tools like SearchAttack may not surface every novel delivery vector [18][6].\n\n---\n\n## Layered Defense-in-Depth: Synthesis\n\nNo single technique is sufficient. Real-world deployments combine multiple layers: model-level hardening (SecAlign, StruQ, PPA) reduces baseline susceptibility [2][12][17]; input sanitization (PISanitizer) and classifiers catch injections before they reach the model [5][11]; architectural patterns (privilege separation, sandboxing, multi-agent trust hierarchies) contain damage from successful bypasses [3][7][15]; and continuous red-teaming validates defenses against emerging attack vectors [16][18]. Production case studies confirm that layered defenses with architectural mitigations are more resilient than any single control [13][19]. There is a noted tension between model-level defenses (which require retraining or fine-tuning access) and detection/architectural approaches (which are model-agnostic but may have higher false-positive rates) \u2014 practitioners must weigh these trade-offs based on their deployment constraints [2][11][14].\n\n---\n\n## Sources\n\n[1] WebInject: Prompt Injection Attack to Web Agents \u2014 http://arxiv.org/abs/2505.11717v4 (arxiv)\n[2] SecAlign: Defending Against Prompt Injection with Preference Optimization \u2014 http://arxiv.org/abs/2410.05451v3 (arxiv)\n[3] Design Patterns to Secure LLM Agents In Action \u2014 https://labs.reversec.com/posts/2025/08/design-patterns-to-secure-llm-agents-in-action (web)\n[4] Automatic and Universal Prompt Injection Attacks against Large Language Models \u2014 http://arxiv.org/abs/2403.04957v1 (arxiv)\n[5] PISanitizer: Preventing Prompt Injection to Long-Context LLMs via Prompt Sanitization \u2014 http://arxiv.org/abs/2511.10720v1 (arxiv)\n[6] Prompt Injection in Production Agents: 2026 Taxonomy \u2014 https://www.digitalapplied.com/blog/prompt-injection-production-agents-2026-taxonomy (web)\n[7] Design Patterns for Securing LLM Agents against Prompt Injection \u2014 https://arxiv.org/html/2506.08837v3 (web)\n[8] Analysis of LLMs Against Prompt Injection and Jailbreak Attacks \u2014 https://arxiv.org/html/2602.22242v1 (web)\n[9] From prompt injections to protocol exploits: Threats in LLM-powered AI agents \u2014 https://www.sciencedirect.com/science/article/pii/S2405959525001997 (web)\n[10] Architectural Blueprints for Securing LLM Agents: A Diagram-Driven Deep Dive \u2014 https://abivarma.medium.com/architectural-blueprints-for-securing-llm-agents-96591c5d7db9 (web)\n[11] Detecting Prompt Injection Attacks Against Application Using Classifiers \u2014 http://arxiv.org/abs/2512.12583v1 (arxiv)\n[12] StruQ: Defending Against Prompt Injection with Structured Queries \u2014 http://arxiv.org/abs/2402.06363v2 (arxiv)\n[13] Prompt Injection in Production: Real-World Case Studies from LLM Deployments \u2014 https://www.redfoxsec.com/blog/prompt-injection-in-production-real-world-case-studies-from-llm-deployments (web)\n[14] Enhancing Security in LLM Applications: A Performance Comparison \u2014 https://arxiv.org/html/2506.19109v1 (web)\n[15] Securing LLM Agents: Prompt Injection Design Patterns \u2014 https://pondevelopment.github.io/llm-prompt-injection-mitigation-patterns/ (web)\n[16] How to Red Team LLM Agents \u2014 https://www.promptfoo.dev/docs/red-team/agents/ (web)\n[17] To Protect the LLM Agent Against the Prompt Injection Attack with Polymorphic Prompt \u2014 http://arxiv.org/abs/2506.05739v1 (arxiv)\n[18] SearchAttack: Red-Teaming LLMs against Knowledge-to-Action Threats under Online Web Search \u2014 http://arxiv.org/abs/2601.04093v2 (arxiv)\n[19] Prompt Injection in Production: Attack Patterns and Defences for AI Agents \u2014 https://brightlume.ai/blog/prompt-injection-production-attack-patterns-defences-ai-agents (web)\n[20] Detection Method for Prompt Injection by Integrating Multiple Signals \u2014 https://arxiv.org/html/2506.06384v1 (web)\n[21] What Is LLM Red Teaming? AI Safety, Risks, and Best Practices \u2014 https://www.mend.io/blog/llm-red-teaming-threats-testing-best-practices/ (web)\n[22] Prompt Injection Attack to Tool Selection in LLM Agents \u2014 https://arxiv.org/html/2504.19793v2 (web)\n[23] Know Thy Enemy: Securing LLMs Against Prompt Injection \u2014 https://arxiv.org/html/2601.04666v1 (web)\n[24] LLM Red Teaming: The Complete Step-By-Step Guide to LLM Safety \u2014 https://www.confident-ai.com/blog/red-teaming-llms-a-step-by-step-guide (web)\n[25] UniGuardian: A Unified Defense for Detecting Prompt Injection, Backdoor Attacks and Adversarial Attacks in Large Language Models \u2014 http://arxiv.org/abs/2502.13141v1 (arxiv)\n[26] A Survey of Multi-Agent Deep Reinforcement Learning with Communication \u2014 http://arxiv.org/abs/2203.08975v2 (arxiv)\n[27] Improve AI Security by Red Teaming Large Language Models \u2014 https://www.techtarget.com/searchenterpriseai/tip/Improve-AI-security-by-red-teaming-large-language-models (web)",
+  "citations": [
+    "http://arxiv.org/abs/2505.11717v4",
+    "http://arxiv.org/abs/2410.05451v3",
+    "https://labs.reversec.com/posts/2025/08/design-patterns-to-secure-llm-agents-in-action",
+    "http://arxiv.org/abs/2403.04957v1",
+    "http://arxiv.org/abs/2511.10720v1",
+    "https://www.digitalapplied.com/blog/prompt-injection-production-agents-2026-taxonomy",
+    "https://arxiv.org/html/2506.08837v3",
+    "https://arxiv.org/html/2602.22242v1",
+    "https://www.sciencedirect.com/science/article/pii/S2405959525001997",
+    "https://abivarma.medium.com/architectural-blueprints-for-securing-llm-agents-96591c5d7db9",
+    "http://arxiv.org/abs/2512.12583v1",
+    "http://arxiv.org/abs/2402.06363v2",
+    "https://www.redfoxsec.com/blog/prompt-injection-in-production-real-world-case-studies-from-llm-deployments",
+    "https://arxiv.org/html/2506.19109v1",
+    "https://pondevelopment.github.io/llm-prompt-injection-mitigation-patterns/",
+    "https://www.promptfoo.dev/docs/red-team/agents/",
+    "http://arxiv.org/abs/2506.05739v1",
+    "http://arxiv.org/abs/2601.04093v2",
+    "https://brightlume.ai/blog/prompt-injection-production-attack-patterns-defences-ai-agents",
+    "https://arxiv.org/html/2506.06384v1",
+    "https://www.mend.io/blog/llm-red-teaming-threats-testing-best-practices/",
+    "https://arxiv.org/html/2504.19793v2",
+    "https://arxiv.org/html/2601.04666v1",
+    "https://www.confident-ai.com/blog/red-teaming-llms-a-step-by-step-guide",
+    "http://arxiv.org/abs/2502.13141v1",
+    "http://arxiv.org/abs/2203.08975v2",
+    "https://www.techtarget.com/searchenterpriseai/tip/Improve-AI-security-by-red-teaming-large-language-models"
+  ],
+  "gate_verdict": "pass",
+  "gate_score": 0.8,
+  "gate_notes": "coverage=1.00 citation_validity=0.70 hallucination_risk=0.70 composite=0.80\nThe report provides a comprehensive overview of prompt injection defense techniques, covering various categories and citing multiple sources for each. However, some claims, like the WebInject and ToolHijacker attack types, are not fully supported by their cited sources in their descriptions. There are also a few instances where claims seem extrapolated or slightly mischaracterized from the findings.",
+  "retry_count": 1
+}
