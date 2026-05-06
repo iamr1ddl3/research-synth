@@ -137,7 +137,7 @@ async def _deep_read_one(target: Finding) -> Finding | None:
             node="deep_read_agent",
             system=SYSTEM_PROMPT,
             user=user_msg,
-            max_tokens=1024,
+            max_tokens=4096,
             response_format={"type": "json_object"},
         )
         parsed = _parse_synthesis(result["content"])
@@ -146,6 +146,10 @@ async def _deep_read_one(target: Finding) -> Finding | None:
         return None
 
     if parsed is None:
+        # Truncated or malformed JSON — usually a max_tokens cap on a long
+        # snippet. Surfacing this loudly so it doesn't fail silently again.
+        preview = (result.get("content") or "")[:120].replace("\n", " ")
+        print(f"  [deep_read] JSON parse failed for {url[:70]}: {preview!r}")
         return None
 
     score = float(parsed.get("relevance_score", 0.0))
