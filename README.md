@@ -178,6 +178,23 @@ This is the right trade-off given the gate's hallucination-risk axis: a strict D
 - Unit tests per node and tools.py
 - pgvector persistence so dashboard reads run state from the shared store
 
+## Scope / Known limits
+
+**In scope.** Multi-agent research synthesizer with cross-vendor LLM routing (Anthropic + OpenAI + OpenRouter Gemini/DeepSeek + Browserbase). End-to-end working demo with quality-gated synthesis, citation tracking, and a dashboard surfacing per-vendor cost + latency.
+
+**Known limits.**
+
+- DeepRead currently requires Browserbase (paid). Non-JS pages would be cheaper to fetch via `requests`; fallback path is roadmap.
+- Citation mapping is best-effort — `[N]` markers in the final report are added by the synthesizer LLM, not deterministically verified against source IDs. Roadmap: post-hoc citation-mapping pass.
+- Per-vendor cost summary in the dashboard exists but doesn't yet compare against a single-vendor baseline — argument that multi-vendor saves money is qualitative until that comparison is wired.
+- Initial DeepRead build had a silent JSON-truncation bug (max_tokens=1024 was insufficient for ~16KB pages). Fixed 2026-05-07 to max_tokens=4096. Audit silent-return paths in any extension you add — see `agents/deepread.py` for the post-fix pattern.
+
+## Further reading
+
+- `agents/` — per-node implementation with vendor-specific clients.
+- `graph/state.py` — LangGraph state schema.
+- `reports/` — actual smoke-run results, scorecards, per-vendor cost breakdowns.
+
 ## License
 
 MIT

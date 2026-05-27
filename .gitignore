@@ -8,3 +8,7 @@ __pycache__/
 .ruff_cache/
 reports/*.html
 .DS_Store
+
+# Vault-internal metadata (private; do not push)
+CLAUDE.md
+.claude/
