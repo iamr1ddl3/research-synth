@@ -8,3 +8,14 @@ __pycache__/
 .ruff_cache/
 reports/*.html
 .DS_Store
+
+# Vault-internal metadata (private; do not push)
+CLAUDE.md
+.claude/
+
+# Wiki + raw — vault-internal context (sprint vocabulary, prior-art lessons), not for public push
+wiki/
+raw/
+
+# init-wiki-skeleton backups
+*.pre-wiki.bak.*
